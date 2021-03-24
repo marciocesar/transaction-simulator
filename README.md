@@ -2,7 +2,8 @@
 Este projeto é uma API de Transações que pode ser utilizada como um Mock
 
 Essa API foi desenvolvida com a premissa de se utilizar o minimo de Libs, focando
-na lógica de desenvolvimento, tratamento de erros de validação.
+na lógica de desenvolvimento da geração de transações aleatórias e tratamento de erros 
+na validação dos parametros recebidos da requisição.
 
 **Contrato**
 ```
