@@ -1,4 +1,4 @@
-package com.challenge.transactionsimulator.api.error;
+package com.challenge.transactionsimulator.api.validation.error;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

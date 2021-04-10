@@ -1,4 +1,4 @@
-package com.challenge.transactionsimulator.api.error;
+package com.challenge.transactionsimulator.api.validation.error;
 
 public class ApiValidationError {
 	

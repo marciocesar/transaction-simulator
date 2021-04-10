@@ -1,4 +1,4 @@
-package com.challenge.transactionsimulator.api.error;
+package com.challenge.transactionsimulator.api.validation.error;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
