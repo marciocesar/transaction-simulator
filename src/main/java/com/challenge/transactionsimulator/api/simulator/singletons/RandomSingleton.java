@@ -1,17 +1,18 @@
-package com.challenge.transactionsimulator.api.factory;
+package com.challenge.transactionsimulator.api.simulator.singletons;
 
 import java.util.Random;
 
 import static java.util.Objects.isNull;
 
-public class RandomSingleton {
+public final class RandomSingleton {
 	
 	private static Random random;
 	
 	private RandomSingleton() {
+		//do nothing
 	}
 	
-	static Random getRandom() {
+	public static Random getRandomInstance() {
 		
 		if (isNull(random)) {
 			

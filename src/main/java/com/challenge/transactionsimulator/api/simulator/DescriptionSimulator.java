@@ -1,10 +1,10 @@
-package com.challenge.transactionsimulator.api.factory;
+package com.challenge.transactionsimulator.api.simulator;
 
-import static com.challenge.transactionsimulator.api.factory.RandomSingleton.getRandom;
+import static com.challenge.transactionsimulator.api.simulator.singletons.RandomSingleton.getRandomInstance;
 
-class DummyDescription {
+class DescriptionSimulator {
 	
-	private DummyDescription() {
+	private DescriptionSimulator() {
 		//do nothing
 	}
 	
@@ -18,8 +18,8 @@ class DummyDescription {
 		
 		final int withoutBlank = 0;
 		
-		final Integer blankPoint = getRandom().nextBoolean() ? (randomLength / getRandomFrequency())
-		                                                     : withoutBlank;
+		final Integer blankPoint = getRandomInstance().nextBoolean() ? (randomLength / getRandomFrequency())
+		                                                             : withoutBlank;
 		
 		final StringBuilder descriptionBuilder = new StringBuilder(randomLength);
 		
@@ -27,8 +27,8 @@ class DummyDescription {
 		
 		while (descriptionBuilder.length() < randomLength) {
 			
-			final int randomConsonant = getRandom().nextInt(CONSONANTS.length() - limit);
-			final int randomVowel = getRandom().nextInt(VOWELS.length() - limit);
+			final int randomConsonant = getRandomInstance().nextInt(CONSONANTS.length() - limit);
+			final int randomVowel = getRandomInstance().nextInt(VOWELS.length() - limit);
 			
 			descriptionBuilder.append(CONSONANTS.toCharArray()[randomConsonant]);
 			descriptionBuilder.append(VOWELS.toCharArray()[randomVowel]);
@@ -46,10 +46,10 @@ class DummyDescription {
 		final int bound = 4;
 		final int init = 2;
 		
-		return getRandom().nextInt(bound - init) + init;
+		return getRandomInstance().nextInt(bound - init) + init;
 	}
 	
 	private static int getRandomLength(final int minLength, final int maxLength) {
-		return getRandom().nextInt(maxLength - minLength) + minLength;
+		return getRandomInstance().nextInt(maxLength - minLength) + minLength;
 	}
 }
