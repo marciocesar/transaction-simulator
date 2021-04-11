@@ -1,6 +1,8 @@
 package com.challenge.transactionsimulator.api.controller;
 
 import com.challenge.transactionsimulator.api.service.TransactionService;
+import com.challenge.transactionsimulator.api.simulator.singletons.SimulationsCacheSingleton;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.mockito.Mockito.mockStatic;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -20,6 +23,12 @@ class TransactionControllerTest {
 	
 	@Autowired
 	private MockMvc mockMvc;
+	
+	@BeforeEach
+	public void setUp() {
+		//mock to don't persist in file
+		mockStatic(SimulationsCacheSingleton.class);
+	}
 	
 	@Test
 	@DisplayName("Get list with correct parameters")
