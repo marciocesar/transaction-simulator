@@ -2,6 +2,7 @@ package com.challenge.transactionsimulator.api.controller;
 
 import com.challenge.transactionsimulator.api.dto.SimulatedResponseTransactionDto;
 import com.challenge.transactionsimulator.api.service.TransactionService;
+import com.challenge.transactionsimulator.api.simulator.SimulationEngine;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,8 @@ public class TransactionController {
 			@Range(min = 1, max = 9999, message = MESSAGE) @PathVariable String year,
 			@Range(min = 1, max = 12, message = MESSAGE) @PathVariable String month) {
 		
-		return ok(transactionsService.getSimulatedList(id, year, month));
+		final SimulationEngine engine = new SimulationEngine(id, year, month);
+		
+		return ok(transactionsService.getSimulatedList(engine));
 	}
 }

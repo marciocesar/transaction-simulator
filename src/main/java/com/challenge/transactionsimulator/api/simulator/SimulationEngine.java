@@ -10,7 +10,7 @@ import static com.challenge.transactionsimulator.api.simulator.singletons.Simula
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 
-public class SimulationEngine implements TransactionSimulatorParameters {
+public class SimulationEngine implements TransactionSimulatorParameters, Engine<SimulatedResponseTransactionDto> {
 	
 	private Integer id;
 	private Integer age;
