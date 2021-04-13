@@ -13,7 +13,9 @@ na validação dos parametros recebidos da requisição.
 
 ## Requisição
 
-[![heroku-shield]](https://autorization-simulator.herokuapp.com/1000/transacoes/2021/12) 
+:cloud: *Pode levar alguns segundos para que a API inicie no heroku*
+
+[![heroku-shield]](https://autorization-simulator.herokuapp.com/1000/transacoes/2021/12)
 
 
 **Resposta**
