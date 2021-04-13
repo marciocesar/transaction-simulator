@@ -1,7 +1,7 @@
 package com.challenge.transactionsimulator.api.controller;
 
 import com.challenge.transactionsimulator.api.service.TransactionService;
-import com.challenge.transactionsimulator.api.simulator.Record;
+import com.challenge.transactionsimulator.api.simulator.Register;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ class TransactionControllerTest {
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private Record record;
+	private Register register;
 	
 	@Test
 	@DisplayName("Get list with correct parameters")

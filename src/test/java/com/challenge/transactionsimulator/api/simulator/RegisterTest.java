@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.challenge.transactionsimulator.api.simulator.RecordTest.PATH;
+import static com.challenge.transactionsimulator.api.simulator.RegisterTest.PATH;
 import static java.lang.System.lineSeparator;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static java.nio.file.Files.delete;
@@ -29,13 +29,13 @@ import static java.util.stream.Collectors.joining;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = Record.class)
+@ContextConfiguration(classes = Register.class)
 @TestPropertySource(properties = { "record.path=" + PATH })
-class RecordTest {
+class RegisterTest {
 	
 	public static final String PATH = "src/test/resources/record.json";
 	@Autowired
-	Record record;
+	Register register;
 	
 	@Test
 	@DisplayName("Should generate a register with simulated payload")
@@ -46,7 +46,7 @@ class RecordTest {
 		final String description = "test";
 		final String key = "123";
 		
-		record.add(key, singletonList(buildASimulatedPayload(date, amount, description)));
+		register.add(key, singletonList(buildASimulatedPayload(date, amount, description)));
 		
 		Stream<String> lines = lines(get(PATH), ISO_8859_1);
 		
@@ -74,8 +74,8 @@ class RecordTest {
 		
 		final SimulatedResponseTransactionDto simulation = buildASimulatedPayload(date, amount, description);
 		
-		record.add(key, singletonList(simulation));
-		final SimulatedResponseTransactionDto result = record.find(key).get().get(0);
+		register.add(key, singletonList(simulation));
+		final SimulatedResponseTransactionDto result = register.find(key).get().get(0);
 		
 		Assertions.assertAll(() -> assertEquals(date, result.getDate()),
 		                     () -> assertEquals(amount, result.getAmount()),

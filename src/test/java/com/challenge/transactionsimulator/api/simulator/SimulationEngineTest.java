@@ -23,7 +23,7 @@ class SimulationEngineTest {
 	private SimulationEngine simulationEngine;
 	
 	@MockBean
-	Record record;
+	Register register;
 	
 	@BeforeEach
 	void setUp() {

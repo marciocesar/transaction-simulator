@@ -1,7 +1,7 @@
 package com.challenge.transactionsimulator.api.service;
 
 import com.challenge.transactionsimulator.api.dto.SimulatedResponseTransactionDto;
-import com.challenge.transactionsimulator.api.simulator.Record;
+import com.challenge.transactionsimulator.api.simulator.Register;
 import com.challenge.transactionsimulator.api.simulator.SimulationEngine;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ class TransactionServiceTest {
 	public SimulationEngine simulationEngine;
 	
 	@MockBean
-	public Record cache;
+	public Register cache;
 	
 	@Autowired
 	public TransactionService transactionService;

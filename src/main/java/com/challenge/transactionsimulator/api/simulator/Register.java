@@ -25,7 +25,7 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 @Component
-public final class Record {
+public final class Register {
 	
 	private Map<String, List<SimulatedResponseTransactionDto>> payload;
 	
