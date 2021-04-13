@@ -5,7 +5,7 @@ import com.challenge.transactionsimulator.api.dto.SimulatedResponseTransactionDt
 import java.time.LocalDateTime;
 
 import static com.challenge.transactionsimulator.api.simulator.DescriptionSimulator.generate;
-import static com.challenge.transactionsimulator.api.simulator.singletons.RandomSingleton.getRandomInstance;
+import static com.challenge.transactionsimulator.api.singleton.RandomSingleton.getRandomInstance;
 import static java.sql.Timestamp.valueOf;
 import static java.time.LocalDate.of;
 

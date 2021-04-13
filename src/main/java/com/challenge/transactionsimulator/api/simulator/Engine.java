@@ -6,5 +6,7 @@ public interface Engine<T> {
 	
 	String getKey();
 	
+	Integer getLimit();
+	
 	List<T> run();
 }

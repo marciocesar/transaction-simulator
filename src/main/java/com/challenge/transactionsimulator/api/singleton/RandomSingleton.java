@@ -1,4 +1,4 @@
-package com.challenge.transactionsimulator.api.simulator.singletons;
+package com.challenge.transactionsimulator.api.singleton;
 
 import java.util.Random;
 

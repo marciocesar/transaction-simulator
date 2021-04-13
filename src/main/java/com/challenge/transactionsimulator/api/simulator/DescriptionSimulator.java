@@ -1,6 +1,6 @@
 package com.challenge.transactionsimulator.api.simulator;
 
-import static com.challenge.transactionsimulator.api.simulator.singletons.RandomSingleton.getRandomInstance;
+import static com.challenge.transactionsimulator.api.singleton.RandomSingleton.getRandomInstance;
 
 class DescriptionSimulator {
 	

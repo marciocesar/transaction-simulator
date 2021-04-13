@@ -3,3 +3,5 @@ server:
 spring:
   application:
     name: transaction-simulator
+record:
+  path: src/main/resources/record.json

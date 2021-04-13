@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.challenge.transactionsimulator.api.simulator.TransactionSimulator.simulate;
-import static com.challenge.transactionsimulator.api.simulator.singletons.SimulationsCacheSingleton.add;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 
@@ -60,8 +59,6 @@ public class SimulationEngine implements TransactionSimulatorParameters, Engine<
 		for (int index = 0; index < this.getLimit(); index++) {
 			simulations.add(simulate(this, index));
 		}
-		
-		add(getKey(), simulations);
 		
 		return simulations;
 	}
