@@ -27,8 +27,8 @@ class DescriptionSimulator {
 		
 		while (descriptionBuilder.length() < randomLength) {
 			
-			final int randomConsonant = getRandomInstance().nextInt(CONSONANTS.length() - limit);
-			final int randomVowel = getRandomInstance().nextInt(VOWELS.length() - limit);
+			int randomConsonant = getRandomInstance().nextInt(CONSONANTS.length() - limit);
+			int randomVowel = getRandomInstance().nextInt(VOWELS.length() - limit);
 			
 			descriptionBuilder.append(CONSONANTS.toCharArray()[randomConsonant]);
 			descriptionBuilder.append(VOWELS.toCharArray()[randomVowel]);
@@ -43,8 +43,8 @@ class DescriptionSimulator {
 	
 	private static int getRandomFrequency() {
 		
-		final int bound = 4;
-		final int init = 2;
+		int bound = 4;
+		int init = 2;
 		
 		return getRandomInstance().nextInt(bound - init) + init;
 	}

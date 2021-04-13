@@ -26,27 +26,27 @@ public class TransactionSimulator {
 	
 	private static String generateDescription() {
 		
-		final int minLength = 10;
-		final int maxLength = 60;
+		int minLength = 10;
+		int maxLength = 60;
 		
 		return generate(minLength, maxLength);
 	}
 	
 	private static Integer generateAmount(final Integer id, final Integer month, final Integer index) {
 		
-		final int negate = -1;
+		int negate = -1;
 		
-		final int amount = (id + index) * month;
+		int amount = (id + index) * month;
 		
 		return getRandomInstance().nextBoolean() ? amount * negate : amount;
 	}
 	
 	private static Long generateDate(final Integer age, final int month) {
 		
-		final int anyDay = 1;
-		final int firstDay = 1;
+		int anyDay = 1;
+		int firstDay = 1;
 		
-		final int day = getRandomInstance().nextInt(of(age, month, anyDay).lengthOfMonth() - firstDay) + firstDay;
+		int day = getRandomInstance().nextInt(of(age, month, anyDay).lengthOfMonth() - firstDay) + firstDay;
 		
 		final LocalDateTime randomDate = of(age, month, day).atStartOfDay();
 		

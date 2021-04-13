@@ -65,7 +65,7 @@ public final class Register {
 		
 		try (Stream<String> lines = lines(get(path), ISO_8859_1)) {
 			
-			final String json = lines.collect(joining(lineSeparator()));
+			String json = lines.collect(joining(lineSeparator()));
 			
 			return MAPPER.readValue(json, new TypeReference<HashMap<String, List<SimulatedResponseTransactionDto>>>() {
 			});

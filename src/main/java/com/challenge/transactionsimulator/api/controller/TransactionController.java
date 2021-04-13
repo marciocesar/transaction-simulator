@@ -31,7 +31,7 @@ public class TransactionController {
 			@Range(min = 1, max = 9999, message = MESSAGE) @PathVariable String year,
 			@Range(min = 1, max = 12, message = MESSAGE) @PathVariable String month) {
 		
-		final SimulationEngine engine = new SimulationEngine(id, year, month);
+		SimulationEngine engine = new SimulationEngine(id, year, month);
 		
 		return ok(transactionsService.getSimulatedList(engine));
 	}
