@@ -1,8 +1,8 @@
 package com.challenge.transactionsimulator.api.service;
 
 import com.challenge.transactionsimulator.api.dto.SimulatedResponseTransactionDto;
+import com.challenge.transactionsimulator.api.simulator.Record;
 import com.challenge.transactionsimulator.api.simulator.SimulationEngine;
-import com.challenge.transactionsimulator.api.simulator.singletons.SimulationsCacheSingleton;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,12 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static java.util.Optional.of;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = { TransactionService.class })
@@ -25,6 +23,9 @@ class TransactionServiceTest {
 	
 	@MockBean
 	public SimulationEngine simulationEngine;
+	
+	@MockBean
+	public Record cache;
 	
 	@Autowired
 	public TransactionService transactionService;
@@ -35,7 +36,7 @@ class TransactionServiceTest {
 		
 		final SimulatedResponseTransactionDto simulatedResponseTransactionDto = buildSimulatedResponse();
 		
-		when(simulationEngine.run()).thenReturn(asList(simulatedResponseTransactionDto));
+		when(simulationEngine.run()).thenReturn(singletonList(simulatedResponseTransactionDto));
 		
 		assertEquals(simulatedResponseTransactionDto, transactionService.getSimulatedList(simulationEngine).get(0));
 	}
@@ -46,8 +47,7 @@ class TransactionServiceTest {
 		
 		final SimulatedResponseTransactionDto simulatedResponseTransactionDto = buildSimulatedResponse();
 		
-		mockStatic(SimulationsCacheSingleton.class).when(() -> SimulationsCacheSingleton.find(anyString()))
-		                                           .thenReturn(of(singletonList(simulatedResponseTransactionDto)));
+		when(cache.find(anyString())).thenReturn(of(singletonList(simulatedResponseTransactionDto)));
 		
 		when(simulationEngine.getKey()).thenReturn("any");
 		
@@ -55,6 +55,7 @@ class TransactionServiceTest {
 	}
 	
 	private SimulatedResponseTransactionDto buildSimulatedResponse() {
+		
 		return new SimulatedResponseTransactionDto().setAmount(1)
 		                                            .setDate(1234L)
 		                                            .setDescription("test");
