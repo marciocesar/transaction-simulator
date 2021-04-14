@@ -9,7 +9,7 @@ class DescriptionSimulator {
 	}
 	
 	private static final String VOWELS = "aeiou";
-	private static final String CONSONANTS = "bcfçghjklmnpqrstvxz";
+	private static final String CONSONANTS = "bcdfghjklmnpqrstvxz";
 	private static final String BLANK = " ";
 	
 	static String generate(final int minLength, final int maxLength) {
