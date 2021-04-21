@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DescriptionSimulatorTest {
 	
-	public static final int MIN_LENGTH = 10;
-	public static final int MAX_LENGTH = 60;
+	private static final int MIN_LENGTH = 10;
+	private static final int MAX_LENGTH = 60;
 	
 	@Test
 	@DisplayName("Should return a description between min and max length determined")
